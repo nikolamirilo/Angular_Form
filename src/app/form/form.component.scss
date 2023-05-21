@@ -1,0 +1,13 @@
+label, input, button, div{
+    font-size: 1.2rem;
+}
+@media screen and (max-width: 1000px){
+    form{
+        width: 100% !important;
+        padding: 0 !important;
+        .form-control{
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    }
+}
