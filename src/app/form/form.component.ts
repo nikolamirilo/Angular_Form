@@ -29,6 +29,8 @@ export class FormComponent {
   }
   public submitLoginForm(): void{
     this.submitted=true
+    console.log(this.loginForm.controls.password.value);
+    console.log(this.loginForm.controls.confirmPassword.value);
     if(this.loginForm.invalid){
       return;
     }else{

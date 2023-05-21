@@ -1,27 +1,27 @@
 <div class="d-flex flex-column justify-content-center align-items-center w-100 min-vh-100 bg-primary p-5">
     <form [formGroup]="loginForm" class="p-5 w-50" (ngSubmit)="submitLoginForm()">
         <h1 class="text-white text-center">Login</h1>
-        <div class="form-group">
-            <label class="text-white" for="full-name">Full Name</label>
-            <input class="form-control w-100" type="text" id="full-name" [ngClass]="{'is-invalid' : submitted && form.fullName.errors}" formControlName="fullName">
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.fullName.errors?.required">Full Name is required.</div>
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.fullName.errors?.minlength">Full Name should have at least 3 characters.</div>
+        <div class="form-group" id="fullName">
+            <label class="text-white" for="fullName">Full Name</label>
+            <input class="form-control px-3 w-100" type="text"  [ngClass]="{'is-invalid' : submitted && form.fullName.errors}" formControlName="fullName">
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.fullName.errors?.required">Full Name is required.</div>
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.fullName.errors?.minlength">Full Name should have at least 3 characters.</div>
         </div>
-         <div class="form-group">
+         <div class="form-group" id="username">
             <label class="text-white" for="username">Username</label>
-            <input class="form-control w-100" type="text" id="username" formControlName="username" [ngClass]="{'is-invalid' : submitted && form.username.errors}">
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.username.errors?.required">Username is required</div>
+            <input class="form-control px-3 w-100" type="text"  formControlName="username" [ngClass]="{'is-invalid' : submitted && form.username.errors}">
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.username.errors?.required">Username is required.</div>
         </div>
-         <div class="form-group">
+         <div class="form-group" id="email">
             <label class="text-white" for="email">Email</label>
-            <input class="form-control w-100" type="email" id="email" formControlName="email" [ngClass]="{'is-invalid' : submitted && form.email.errors}">
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.email.errors?.required">Email is required</div>
+            <input class="form-control px-3 w-100" type="email"  formControlName="email" [ngClass]="{'is-invalid' : submitted && form.email.errors}">
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.email.errors?.required">Email is required.</div>
         </div>
-         <div class="form-group">
+         <div class="form-group" id="password" >
             <label class="text-white" for="password">Password</label>
-            <input class="form-control w-100" type="password" id="password" formControlName="password" [ngClass]="{'is-invalid' : submitted && form.password.errors}">
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.password.errors?.required">Password is required</div>
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.password.errors?.pattern">
+            <input class="form-control px-3 w-100" type="password" formControlName="password" [ngClass]="{'is-invalid' : submitted && form.password.errors}">
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.password.errors?.required">Password is required.</div>
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.password.errors?.pattern">
                 Must include at least 1 lower-case letter.
                 Must include at least 1 upper-case letter.
                 Must include at least 1 number.
@@ -30,19 +30,19 @@
                 Must be from 8 to 32 characters long.
              </div>
         </div>
-         <div class="form-group">
-            <label class="text-white" for="confirm-password">Confirm Password</label>
-            <input class="form-control w-100" type="password" id="confirm-password" formControlName="confirmPassword" [ngClass]="{'is-invalid' : submitted && form.confirmPassword.errors}">
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.confirmPassword.errors?.required">Confirm Password is required</div>
+         <div class="form-group"  id="confirmPassword">
+            <label class="text-white" for="confirmPassword">Confirm Password</label>
+            <input class="form-control px-3 w-100" type="password" formControlName="confirmPassword" [ngClass]="{'is-invalid' : submitted && form.confirmPassword.errors}">
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.confirmPassword.errors?.required">Confirm Password does not match.</div>
         </div>
-         <div class="form-group">
-            <label class="text-white" for="accept-terms">Accept Terms</label>
-            <input class="m-3" type="checkbox" id="accept-terms" formControlName="acceptTerms" [ngClass]="{'is-invalid' : submitted && form.acceptTerms.errors}">
-            <div class="text-danger p-0 m-0" *ngIf="submitted && form.acceptTerms.errors?.required">Accept Terms checkbox is required</div>
+         <div class="form-group" id="acceptTerms">
+            <label class="text-white" for="acceptTerms">Accept Terms</label>
+            <input class="m-3" type="checkbox"  formControlName="acceptTerms" [ngClass]="{'is-invalid' : submitted && form.acceptTerms.errors}">
+            <div  class="invalid-feedback text-danger p-0 m-0" *ngIf="submitted && form.acceptTerms.errors?.required">Accept Terms checkbox is required.</div>
         </div>
          <div class="form-group d-flex flex-row gap-3 justify-content-center align-items-center">
-            <button class="btn btn-danger px-5 font-weight-bold" type="submit">Submit</button>
-            <button class="btn btn-warning px-5 font-weight-bold" type="reset" (click)="resetLoginForm()">Reset</button>
+            <button class="btn btn-danger px-5 font-weight-bold" type="submit" id="submit">Submit</button>
+            <button class="btn btn-warning px-5 font-weight-bold" type="reset" id="reset" (click)="resetLoginForm()">Reset</button>
         </div>
        <!-- <h1 *ngIf="form.username">{{form.username.value}}</h1>  -->
     </form>
